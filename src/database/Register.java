@@ -3,7 +3,6 @@ package database;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,16 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class Register
  */
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/Register")
+public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public Register() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -29,23 +29,27 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		response.setContentType("text/html");  
-	    PrintWriter out = response.getWriter();  
-	          
-	    String n=request.getParameter("username");  
-	    String p=request.getParameter("password");  
-	          
-	    if(LoginAct.validate(n, p)){
-	    	//request.setAttribute("username", n);
-	    	response.sendRedirect("home.jsp");
+		response.setContentType("text/html");
+	    PrintWriter out = response.getWriter();
+	    
+	    String uname = request.getParameter("username");
+	    String passwd = request.getParameter("password");
+	    String name = request.getParameter("name");
+	    String email = request.getParameter("email");
+	    
+	    if(!RegisterAct.check_user(uname)){
+	    	out.println("Sorry! this username is already taken.");
+	    	response.sendRedirect("register.jsp");
 	    }
-	    else{  
-	        //out.print("Sorry username or password error");  
-	        //RequestDispatcher rd=request.getRequestDispatcher(request.getContextPath() + "/login.jsp");  
-	        //rd.include(request,response);
-	    	response.sendRedirect("login.jsp");
-	    }  
+	    else{
+	    	if(RegisterAct.add_user(uname, passwd, name, email)==0){
+	    		response.sendRedirect("login.jsp");
+	    	}
+	    	else{
+	    		out.println("Sorry! there was some error during registration Please try again.");
+		    	response.sendRedirect("register.jsp");
+	    	}
+	    }
 	}
 
 	/**

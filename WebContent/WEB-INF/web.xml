@@ -2,9 +2,11 @@
 <servlet-mapping>
 
 <servlet-name>Login</servlet-name>
-<url-pattern>/Login.java</url-pattern>
+<url-pattern>/login.jsp</url-pattern>
 
 <servlet-name>Homepage</servlet-name>
 <url-pattern>/Homepage.java</url-pattern>
 
+<servlet-name>Register</servlet-name>
+<url-pattern>/Register.java</url-pattern>
 </servlet-mapping>
