@@ -8,11 +8,15 @@
 </head>
 <body>
 
-<form action="AddSong" method="post">  
+<!-- <form action="AddSong" method="post">  
 Trackname:<input type="text" name="trackname"/><br/><br/>  
 playtime:<input type="text" name="playtime"/><br/><br/>  
 Link to the track:<input type="text" name="link"/><br/><br/> 
 Submit for Approval:<input type="submit"></input>  
-</form>
+</form> -->
+<%
+String user = (String)session.getAttribute("currentuser");
+out.print(user);
+%>
 </body>
 </html>
