@@ -1,24 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <servlet-mapping>
 
 <servlet-name>Login</servlet-name>
-<url-pattern>/Login.java</url-pattern>
+<url-pattern>/login.jsp</url-pattern>
 
 <servlet-name>Homepage</servlet-name>
 <url-pattern>/Homepage.java</url-pattern>
 
 </servlet-mapping>
-=======
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>musicsharing</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
-</web-app>
->>>>>>> 71b2e1d5d15d78d28d2831e906e0dbba8cc6cb1a

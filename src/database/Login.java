@@ -36,14 +36,15 @@ public class Login extends HttpServlet {
 	    String n=request.getParameter("username");  
 	    String p=request.getParameter("password");  
 	          
-	    if(LoginAct.validate(n, p)){  
-	        RequestDispatcher rd=request.getRequestDispatcher("Homepage");  
-	        rd.forward(request,response);
-	    }  
+	    if(LoginAct.validate(n, p)){
+	    	//request.setAttribute("username", n);
+	    	response.sendRedirect("home.jsp");
+	    }
 	    else{  
-	        out.print("Sorry username or password error");  
-	        RequestDispatcher rd=request.getRequestDispatcher("login.jsp");  
-	        rd.include(request,response);  
+	        //out.print("Sorry username or password error");  
+	        //RequestDispatcher rd=request.getRequestDispatcher(request.getContextPath() + "/login.jsp");  
+	        //rd.include(request,response);
+	    	response.sendRedirect("login.jsp");
 	    }  
 	}
 
