@@ -24,7 +24,7 @@ Submit for Approval:<input type="submit"></input>
 <a href = "myplaylist.jsp">My Playlists</a>  
 <!-- will have add playlist in it -->
 <%
-String user = (String)session.getAttribute("currentUser");
+String user = (String)session.getAttribute("currentuser");
 out.print(user);
 %>
 <div></div>
