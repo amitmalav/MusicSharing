@@ -3,7 +3,6 @@ package database;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,16 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class AddSong
  */
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/AddSong")
+public class AddSong extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public AddSong() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -33,23 +33,16 @@ public class Login extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		response.setContentType("text/html");  
 	    PrintWriter out = response.getWriter();  
-	          
-	    String username=request.getParameter("username");  
-	    String password=request.getParameter("password");  
-	          
-	    if(LoginAct.validate(username, password)){
-	    	//request.setAttribute("username", n);
-	    	HttpSession userSession = request.getSession(true);
-			userSession.setAttribute("currentUser", username);
-	    	response.sendRedirect("home.jsp");
-	    }
-	    else{  
-	        //out.print("Sorry username or password error");  
-	        //RequestDispatcher rd=request.getRequestDispatcher(request.getContextPath() + "/login.jsp");  
-	        //rd.include(request,response);
-	    	request.getSession(true).setAttribute("error", "Invalid");
-	    	response.sendRedirect("login.jsp");
-	    }  
+	    
+	    
+		HttpSession session = request.getSession(true);
+		String username = (String)session.getAttribute("currentUser");
+		String trackname = request.getParameter("trackname");
+		String playtime = request.getParameter("playtime");
+		String link = request.getParameter("link");
+		
+		//out.print("Welcome "+ username);
+		
 	}
 
 	/**

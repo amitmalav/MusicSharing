@@ -38,10 +38,6 @@ public class Homepage extends HttpServlet {
 //		out.print("Welcome "+n);  
 //		          
 //		out.close(); 
-		response.sendRedirect(request.getContextPath() + "/login.jsp");
-		
-		RequestDispatcher rd = getServletContext().getRequestDispatcher("home.jsp");
-		rd.forward(request, response);
 	}
 
 	/**

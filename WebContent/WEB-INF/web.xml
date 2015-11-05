@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <servlet-mapping>
 
 <servlet-name>Login</servlet-name>
@@ -9,4 +10,8 @@
 
 <servlet-name>Register</servlet-name>
 <url-pattern>/Register.java</url-pattern>
+
+<servlet-name>AddSong</servlet-name>
+<url-pattern>/AddSong.java</url-pattern>
+
 </servlet-mapping>
