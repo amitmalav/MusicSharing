@@ -40,14 +40,15 @@ public class Login extends HttpServlet {
 	    if(LoginAct.validate(username, password)){
 	    	//request.setAttribute("username", n);
 	    	HttpSession userSession = request.getSession(true);
-			userSession.setAttribute("currentUser", username);
+			//userSession.setAttribute("currentUser", username);
+	    	userSession.setAttribute("currentuser", username);
 	    	response.sendRedirect("home.jsp");
 	    }
 	    else{  
 	        //out.print("Sorry username or password error");  
 	        //RequestDispatcher rd=request.getRequestDispatcher(request.getContextPath() + "/login.jsp");  
 	        //rd.include(request,response);
-	    	request.getSession(true).setAttribute("error", "Invalid");
+	    	//request.getSession(true).setAttribute("error", "Invalid");
 	    	response.sendRedirect("login.jsp");
 	    }  
 	}

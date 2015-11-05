@@ -13,6 +13,10 @@
 
 <a href = "addsong.jsp">Add New Song</a>
 
+<a href = "addtoplaylist.jsp">Add Song to Playlist</a>
+
+<a href = "myplaylist.jsp">My Playlists</a>  
+<!-- will have add playlist in it -->
 <%
 String user = (String)session.getAttribute("currentUser");
 out.print(user);

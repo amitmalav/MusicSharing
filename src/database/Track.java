@@ -8,8 +8,8 @@ public class Track {
 	String user;
 	double rating;
 	boolean appr;
-	
-	public Track(String n, String l, double pt, String a, String u, double r, boolean app){
+	String artist;
+	public Track(String n, String l, double pt, String a, String u, double r, boolean app, String ar){
 		name = n;
 		link = l;
 		ptime = pt;
@@ -17,6 +17,7 @@ public class Track {
 		user = u;
 		rating = r;
 		appr = app;
+		artist = ar;
 	}
 	public String getTrack(){
 		return name;
@@ -56,5 +57,8 @@ public class Track {
 	}
 	public void setStatus(boolean b){
 		appr = b;
+	}
+	public String getArtist(){
+		return artist;
 	}
 }

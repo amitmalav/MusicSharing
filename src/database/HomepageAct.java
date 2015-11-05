@@ -10,7 +10,6 @@ import java.util.List;
 
 public class HomepageAct {
 	public static List<String> getMySongs(String user){  
-		boolean status=false;
 		Connection connection=null;
 		List<String> songs = new ArrayList<String>();
 		
