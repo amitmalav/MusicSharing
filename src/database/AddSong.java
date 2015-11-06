@@ -2,6 +2,7 @@ package database;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,10 +37,32 @@ public class AddSong extends HttpServlet {
 	    
 	    
 		HttpSession session = request.getSession(true);
-		String username = (String)session.getAttribute("currentUser");
+		String username = (String)session.getAttribute("currentuser");
+		String albumname = request.getParameter("albumname");
+		String artistname = request.getParameter("artistname");
 		String trackname = request.getParameter("trackname");
 		String playtime = request.getParameter("playtime");
+		String rating = request.getParameter("rating");
 		String link = request.getParameter("link");
+		if(albumname == "" || artistname == "" || trackname == "" || playtime == "" || rating == "" || link == ""){
+			session.setAttribute("datavalid", "Invalid");
+			response.sendRedirect("addsong.jsp");
+		}
+		else{
+			int playint = Integer.parseInt(playtime);
+			int ratint = Integer.parseInt(rating);
+			if(HomepageAct.addSong(username, albumname, artistname, trackname, playint, ratint, link)==0){
+				session.setAttribute("datavalid", "Valid");
+				response.sendRedirect("home.jsp");
+	    	}
+	    	else{
+	    		out.println("Sorry! there was some error during adding the song Please try again.");
+		    	response.sendRedirect("addsong.jsp");
+	    	}
+		}
+		
+		
+		
 		
 		//out.print("Welcome "+ username);
 		
@@ -50,7 +73,41 @@ public class AddSong extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		response.setContentType("text/html");  
+	    PrintWriter out = response.getWriter();  
+	    
+	    
+		HttpSession session = request.getSession(true);
+		String username = (String)session.getAttribute("currentuser");
+		String albumname = request.getParameter("albumname");
+		String artistname = request.getParameter("artistname");
+		String trackname = request.getParameter("trackname");
+		String playtime = request.getParameter("playtime");
+		String rating = request.getParameter("rating");
+		String link = request.getParameter("link");
+		if(albumname == "" || artistname == "" || trackname == "" || playtime == "" || rating == "" || link == ""){
+			session.setAttribute("datavalid", "Invalid");
+			response.sendRedirect("addsong.jsp");
+		}
+		else{
+			int playint = Integer.parseInt(playtime);
+			int ratint = Integer.parseInt(rating);
+			if(HomepageAct.addSong(username, albumname, artistname, trackname, playint, ratint, link)==0){
+				session.setAttribute("datavalid", "Valid");
+				response.sendRedirect("home.jsp");
+	    	}
+	    	else{
+	    		out.println("Sorry! there was some error during adding the song Please try again.");
+		    	response.sendRedirect("addsong.jsp");
+	    	}
+		}
+		
+		
+		
+		
+		//out.print("Welcome "+ username);
+		
 	}
 
 }

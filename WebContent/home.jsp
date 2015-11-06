@@ -7,26 +7,27 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<%
+String user = (String)session.getAttribute("currentuser");
+out.print("Welcome " + user);
+%>
+<br><br>
+
 <a href = "home.jsp">Home</a>
 
 <br><br>
-<!-- 
-<a href = "addsong.jsp">Add New Song</a> -->
-<form action="addsong.jsp" method="post">  
-Trackname:<input type="text" name="trackname"/><br/><br/>  
-playtime:<input type="text" name="playtime"/><br/><br/>  
-Link to the track:<input type="text" name="link"/><br/><br/> 
-Submit for Approval:<input type="submit"></input>  
-</form>
+
+<a href = "addsong.jsp">Add New Song</a>
+
 <br/><br/>
-<a href = "addtoplaylist.jsp">Add Song to Playlist</a>
+<a href = "mysongs.jsp">My Songs</a>
+
+<br/><br/>
 
 <a href = "myplaylist.jsp">My Playlists</a>  
 <!-- will have add playlist in it -->
-<%
-String user = (String)session.getAttribute("currentUser");
-out.print(user);
-%>
+
 <div></div>
 </body>
 </html>
