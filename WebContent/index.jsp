@@ -11,6 +11,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Welcome to the World of Music</title>
 <link rel="stylesheet" href="css/bootstrap.css">
+<%if(session.getAttribute("currentuser") != null) {
+	response.sendRedirect("home.jsp");
+}
+%>
 </head>
 <body>
 <nav class = "navbar navbar-default">

@@ -6,6 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Register yourself</title>
 <link rel="stylesheet" href="css/bootstrap.css">
+<%if(session.getAttribute("currentuser") != null) {
+	System.out.println("werty");
+	response.sendRedirect("home.jsp");
+}
+%>
 </head>
 <body>
 
