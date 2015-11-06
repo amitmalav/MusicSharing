@@ -40,7 +40,7 @@ public class LoginAct {
         } catch(ClassNotFoundException cnfe){
         	System.out.println("JDBC Driver not found");
         } catch(SQLException sqle){
-        	System.out.println("Error in getting connetcion from the database");
+        	sqle.printStackTrace();
         }
         
         return connection;
