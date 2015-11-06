@@ -1,15 +1,17 @@
 package database;
 
 public class Track {
+	String trackid;
 	String name;
 	String link;
-	double ptime;
+	String ptime;
 	String album;
 	String user;
-	double rating;
-	boolean appr;
+	String rating;
+	String appr;
 	String artist;
-	public Track(String n, String l, double pt, String a, String u, double r, boolean app, String ar){
+	public Track(String id,  String u, String a, String ar, String n,  String pt,  String r, String app, String l ){
+		trackid = id;
 		name = n;
 		link = l;
 		ptime = pt;
@@ -18,6 +20,9 @@ public class Track {
 		rating = r;
 		appr = app;
 		artist = ar;
+	}
+	public String getTrackid(){
+		return trackid;
 	}
 	public String getTrack(){
 		return name;
@@ -31,10 +36,10 @@ public class Track {
 	public void setLink(String t){
 		link = t;
 	}
-	public double getPlayTime(){
+	public String getPlayTime(){
 		return ptime;
 	}
-	public void setPlatTime(double t){
+	public void setPlayTime(String t){
 		ptime = t;
 	}
 	public String getAlbum(){
@@ -46,16 +51,16 @@ public class Track {
 	public String getUser(){
 		return user;
 	}
-	public double getRating(){
+	public String getRating(){
 		return rating;
 	}
-	public void setRating(double r){
+	public void setRating(String r){
 		rating = r;
 	}
-	public boolean getStatus(){
+	public String getStatus(){
 		return appr;
 	}
-	public void setStatus(boolean b){
+	public void setStatus(String b){
 		appr = b;
 	}
 	public String getArtist(){

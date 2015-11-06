@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
    <%@ page import="java.util.*"
-            import= java.sql.*
+            import= "java.sql.*"
     %>
     <%@ page import="database.HomepageAct" %>
+    <%@ page import="database.Track" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,23 +12,24 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <%
-	String user = request.getParameter("username");
-	List<String> rs = HomepageAct.getMySongs(user);
+String user = (String)session.getAttribute("currentuser");
+	out.print(user + "<br><br>");	
+	List<Track> rs = HomepageAct.getMySongs(user);
 	
-	for(String song : rs){
-		out.print("Songs Added <br/>");
-		out.print(song+"<br/>");
+	for(Track song : rs){
+		out.print("<br><br>**** <br>");
+		out.print(song.getUser() + "		" + song.getTrack()+"		" + song.getAlbum()+"		" + song.getArtist()+"		" + song.getStatus()+"		"+ song.getLink()+"		");
 	}
 %>
-<input type="button" value="Add a new Song" name="add" onclick="addSong()">
+<br><br>
+<a href = "addsong.jsp"><input type="button" value="Add a new Song" name="add"></a>
 
 </body>
-<script>
+<!-- <script>
 function addSong(){
-	loaction.href = "addSong.jsp";  
+	loaction.href = "addsong.jsp";  
 }
-</script>
+</script> -->
 </html>
-
-//assumed existence of funtion, class, addsong.jsp

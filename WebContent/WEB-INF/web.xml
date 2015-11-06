@@ -14,4 +14,7 @@
 <servlet-name>AddSong</servlet-name>
 <url-pattern>/AddSong.java</url-pattern>
 
+<servlet-name>AddPlaylist</servlet-name>
+<url-pattern>/AddPlaylist.java</url-pattern>
+
 </servlet-mapping>

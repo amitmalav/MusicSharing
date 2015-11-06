@@ -19,15 +19,16 @@ public class FirstPage {
 	PreparedStatement ps = connection.prepareStatement("select * from track order by trackrating desc limit 10");  
 	ResultSet rs=ps.executeQuery();  
 	while(rs.next()){
+		String id = rs.getString(1);
 		String user = rs.getString(2);
 		String album = rs.getString(3);
 		String artist = rs.getString(4);
 		String name = rs.getString(5);
-		double ptime = rs.getDouble(6);
-		double rating = rs.getDouble(6);
-		boolean appr = rs.getBoolean(7);
-		String link = rs.getString(8);
-		Track t = new Track(name, link, ptime, album, user, rating, appr, artist);
+		String ptime = rs.getString(6);
+		String rating = rs.getString(7);
+		String appr = rs.getString(8);
+		String link = rs.getString(9);
+		Track t = new Track(id, user, album, artist, name, ptime, rating, appr, link);
 		songs.add(t);
 	}
 	}catch(Exception e){//System.out.println(e);

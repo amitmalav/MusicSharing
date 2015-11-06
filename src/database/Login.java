@@ -1,6 +1,7 @@
 package database;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
@@ -49,7 +50,7 @@ public class Login extends HttpServlet {
 	        //RequestDispatcher rd=request.getRequestDispatcher(request.getContextPath() + "/login.jsp");  
 	        //rd.include(request,response);
 	    	//request.getSession(true).setAttribute("error", "Invalid");
-	    	response.sendRedirect("login.jsp");
+	    	//response.sendRedirect("login.jsp");
 	    }  
 	}
 
