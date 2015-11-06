@@ -18,7 +18,9 @@
 <nav class = "navbar navbar-default">
 <div class = "container-fluid">
 <div class = "navbar-header">
-<a class = "navbar-brand" href = "index.jsp"> Hotel Booking </a>
+<a class = "navbar-brand" href = "home.jsp">Home</a>
+<a class = "navbar-brand" href = "feedback.jsp">Give Feedback</a>
+<a class = "navbar-brand" href = "logout.jsp"> Logout </a>
 </div>
 </div>
 </nav>
