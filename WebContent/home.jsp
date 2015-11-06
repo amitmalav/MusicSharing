@@ -11,9 +11,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
 <title>Insert title here</title>
 </head>
 <body>
+<nav class = "navbar navbar-default">
+<div class = "container-fluid">
+<div class = "navbar-header">
+<a class = "navbar-brand" href = "index.jsp"> Hotel Booking </a>
+</div>
+</div>
+</nav>
 
 <!-- <a href = "home.jsp">Home</a>
 
