@@ -13,6 +13,7 @@
 </head>
 <body>
 <h1>Welcome to Music Sharing Application</h1>
+<br/><br/>
 <a href="register.jsp">Register Yourself!</a>
 <a href="login.jsp">Login</a>
 <h2>Top Hits Now</h2>

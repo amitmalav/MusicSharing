@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Register yourslef</title>
+<title>Register yourself</title>
 </head>
 <body>
 <form action="Register" method="post">

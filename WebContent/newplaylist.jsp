@@ -12,6 +12,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+String user = (String)session.getAttribute("currentuser");
+if(user==null){
+	response.sendRedirect("index.jsp");
+	
+}
+%>
 <form action="AddPlaylist" method="post">  
 
 PlaylistName:<input type="text" name="plname"/><br/><br/>
@@ -21,7 +28,6 @@ Privacy Option:<br>
 
 
 <%
-String user = (String)session.getAttribute("currentuser");
 	out.print(user + "<br><br>");	
 	List<Track> rs = HomepageAct.getallSongs();
 	

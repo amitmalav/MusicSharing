@@ -14,6 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <!-- <a href = "home.jsp">Home</a>
 
 <br><br> -->
@@ -35,6 +36,10 @@ Submit for Approval:<input type="submit"></input>
  -->
 <%
 String user = (String)session.getAttribute("currentuser");
+if(user==null){
+	response.sendRedirect("index.jsp");
+	
+}
 out.print("Welcome " + user);
 %>
 <br><br>
