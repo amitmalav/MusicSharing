@@ -4,19 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Add Songs</title>
 </head>
 <body>
-<a href = "home.jsp">Home</a>
 
-<br><br>
-
-<a href = "addsong.jsp">Add New Song</a>
-
-<%
-String user = (String)session.getAttribute("currentUser");
-out.print(user);
-%>
-<div></div>
+<form action="AddSong" method="post">  
+Trackname:<input type="text" name="trackname"/><br/><br/>  
+playtime:<input type="text" name="playtime"/><br/><br/>  
+Link to the track:<input type="text" name="link"/><br/><br/> 
+Submit for Approval:<input type="submit"></input>  
+</form>
 </body>
 </html>
