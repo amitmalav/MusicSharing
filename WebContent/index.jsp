@@ -19,7 +19,7 @@
 <%
 	List<Track> top = FirstPage.getTopSongs();
 	for(Track t: top){
-		out.print(t.getTrack()+" from "+t.getAlbum());
+		out.print(t.getTrack()+" from "+t.getAlbum() + "<br><br>");
 	}
 %>
 </body>

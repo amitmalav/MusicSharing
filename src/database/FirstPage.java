@@ -16,7 +16,7 @@ public class FirstPage {
 	
 	try{
 	connection=getConnection();
-	PreparedStatement ps = connection.prepareStatement("select * from track order by rating desc limit 10");  
+	PreparedStatement ps = connection.prepareStatement("select * from track order by trackrating desc limit 10");  
 	ResultSet rs=ps.executeQuery();  
 	while(rs.next()){
 		String user = rs.getString(2);
