@@ -9,7 +9,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Welcome to the World of Music</title>
+<link rel="stylesheet" href="/css/bootstrap.css">
 </head>
 <body>
 <h1>Welcome to Music Sharing Application</h1>
