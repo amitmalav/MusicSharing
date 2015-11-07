@@ -15,6 +15,16 @@ if(user==null){
 	
 }
 %>
+
+<nav class = "navbar navbar-default">
+<div class = "container-fluid">
+<div class = "navbar-header col-md-12">
+<a class = "navbar-brand col-md-3" href = "home.jsp">Home</a>
+<a class = "navbar-brand col-md-3" href = "feedback.jsp">Give Feedback</a>
+<a class = "navbar-brand col-md-3" href = "logout.jsp">Logout</a>
+</div>
+</div>
+</nav>
 <form action="AddSong" method="post" role="form" class="form-horizontal">
 		<div class="form-group">
 			<div class="col-md-10">

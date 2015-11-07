@@ -12,45 +12,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
-<title>Insert title here</title>
-</head>
-<body>
-<nav class = "navbar navbar-default">
-<div class = "container-fluid">
-<div class = "navbar-header">
-<a class = "navbar-brand" href = "home.jsp">Home</a>
-<a class = "navbar-brand" href = "feedback.jsp">Give Feedback</a>
-<a class = "navbar-brand" href = "logout.jsp"> Logout </a>
-</div>
-</div>
-</nav>
-
-<!-- <a href = "home.jsp">Home</a>
-
-<br><br> -->
-
-
-
-
-
-<!-- 
-<a href = "addsong.jsp">Add New Song</a> -->
-
-<!-- 
-<form action="addsong.jsp" method="post">  
-Trackname:<input type="text" name="trackname"/><br/><br/>  
-playtime:<input type="text" name="playtime"/><br/><br/>  
-Link to the track:<input type="text" name="link"/><br/><br/> 
-Submit for Approval:<input type="submit"></input>  
-</form>
- -->
 <%
 String user = (String)session.getAttribute("currentuser");
 if(user==null){
 	response.sendRedirect("index.jsp");
+	System.out.println("asdf");
+}
+out.print("<title>Home of " + user+"</title>");
+%>
+
+</head>
+<body>
+<nav class = "navbar navbar-default">
+<div class = "container-fluid">
+<div class = "navbar-header col-md-12">
+<% out.print("<div class='navbar-brand col-md-4'>Welcome " + user + "</div>"); %>
+<a class = "navbar-brand col-md-3" href = "feedback.jsp">Give Feedback</a>
+<a class = "navbar-brand col-md-3" href = "logout.jsp">Logout</a>
+</div>
+</div>
+</nav>
+
+<%
+user = (String)session.getAttribute("currentuser");
+if(user==null){
+	response.sendRedirect("index.jsp");
 	
 }
-out.print("Welcome " + user);
 %>
 <br><br>
 

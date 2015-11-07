@@ -6,10 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
 
-<%-- <%if(session.getAttribute("currentUser") != null) { 
+<%if(session.getAttribute("currentUser") != null) { 
 	response.sendRedirect("home.jsp");
 }
-%> --%>
+%>
 
 
 </head>

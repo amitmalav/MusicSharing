@@ -13,7 +13,15 @@
 <title>See my playlist</title>
 </head>
 <body>
-<br><br>
+<nav class = "navbar navbar-default">
+<div class = "container-fluid">
+<div class = "navbar-header col-md-12">
+<a class = "navbar-brand col-md-3" href = "home.jsp">Home</a>
+<a class = "navbar-brand col-md-3" href = "feedback.jsp">Give Feedback</a>
+<a class = "navbar-brand col-md-3" href = "logout.jsp">Logout</a>
+</div>
+</div>
+</nav>
 <%
 String user = (String)session.getAttribute("currentuser");
 if(user==null){

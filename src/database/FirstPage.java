@@ -31,8 +31,11 @@ public class FirstPage {
 		Track t = new Track(id, user, album, artist, name, ptime, rating, appr, link);
 		songs.add(t);
 	}
-	}catch(Exception e){//System.out.println(e);
-		}  
+	}catch(Exception e){System.out.println(e);
+		}
+	finally{
+		closeConnection(connection);
+	}
 	return songs;
 }
 static Connection getConnection() {
