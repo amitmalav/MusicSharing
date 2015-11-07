@@ -18,32 +18,6 @@
 
 <br><br> -->
 
-<%
-
-  String username=request.getParameter("username");  
-  String password=request.getParameter("password");  
-        
-  if(LoginAct.validate(username, password)){
-  	//request.setAttribute("username", n);
-  	//HttpSession userSession = request.getSession(true);
-		//userSession.setAttribute("currentUser", username);
-	out.print("blah blalh");
-  	session.setAttribute("currentuser", username);
-  	response.sendRedirect("home.jsp");
-  }
-  else{  
-      //out.print("Sorry username or password error");  
-      //RequestDispatcher rd=request.getRequestDispatcher(request.getContextPath() + "/login.jsp");  
-      //rd.include(request,response);
-  	//request.getSession(true).setAttribute("error", "Invalid");
-  	out.print("blah blalh");
-  	response.sendRedirect("login.jsp");
-  }  
-%>
-
-
-
-
 
 
 
@@ -51,22 +25,33 @@
 <!-- 
 <a href = "addsong.jsp">Add New Song</a> -->
 
-
+<!-- 
 <form action="addsong.jsp" method="post">  
 Trackname:<input type="text" name="trackname"/><br/><br/>  
 playtime:<input type="text" name="playtime"/><br/><br/>  
 Link to the track:<input type="text" name="link"/><br/><br/> 
 Submit for Approval:<input type="submit"></input>  
 </form>
+ -->
+<%
+String user = (String)session.getAttribute("currentuser");
+out.print("Welcome " + user);
+%>
+<br><br>
+
+<a href = "home.jsp">Home</a>
+
+<br><br>
+
+<a href = "addsong.jsp">Add New Song</a>
+
 <br/><br/>
-<a href = "addtoplaylist.jsp">Add Song to Playlist</a>
+<a href = "mysongs.jsp">My Songs</a>
+<br/><br/>
 
 <a href = "myplaylist.jsp">My Playlists</a>  
 <!-- will have add playlist in it -->
-<%
-String user = (String)session.getAttribute("currentUser");
-out.print(user);
-%>
+
 <div></div>
 </body>
 </html>
