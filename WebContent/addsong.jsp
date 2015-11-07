@@ -15,7 +15,7 @@ if(user==null){
 	
 }
 %>
-<form action="AddSong" method="post"  role="form" class="form-horizontal">
+<form action="AddSong" method="post" role="form" class="form-horizontal">
 		<div class="form-group">
 			<div class="col-md-10">
 				<div class="form-group row">

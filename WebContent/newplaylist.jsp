@@ -9,23 +9,46 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Add new playlist</title>
+<link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
 <%
 String user = (String)session.getAttribute("currentuser");
 if(user==null){
 	response.sendRedirect("index.jsp");
-	
 }
 %>
-<form action="AddPlaylist" method="post">  
+<form action="AddPlaylist" method="post" role="form" class="form-horizontal">
 
-PlaylistName:<input type="text" name="plname"/><br/><br/>
-Privacy Option:<br>
-<input type="radio" name="secure" value="1">Public<br>
-<input type="radio" name="secure" value="0">Private<br>
-
+	<div class="form-group">
+		<div class="col-md-10">
+			<div class="form-group row">
+				<label for="plname" class="col-md-2 control-label">PlaylistName:</label>
+				<div class="col-md-3">
+					<input type="text" class="form-control" name="plname">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="col-md-10">
+			<div class="form-group row">
+				<label for="secure" class="col-md-2 control-label">privacy Option:</label>
+				<div class="col-md-1">
+					<div class="radio">
+						<label><input type="radio" name="secure" value="1">Public</label>
+					</div>
+				</div>
+				<div class="col-md-1">
+					<div class="radio">
+						<label><input type="radio" name="secure" value="0">Private</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 <%
 	out.print(user + "<br><br>");	
@@ -36,10 +59,10 @@ Privacy Option:<br>
 	}
 %>
 
-<input type="submit" value = "Create Playlist"></input>  
+	<div class="form-group col-md-10 form-group row">
+		<div class="col-md-2"></div>
+		<button type="submit" class="btn btn-primary">Create Playlist</button>
+	</div>
 </form>
-
-
-
 </body>
 </html>
