@@ -13,6 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
 <%
+System.out.println("asdf");
 String user = (String)session.getAttribute("currentuser");
 if(user==null){
 	response.sendRedirect("index.jsp");
@@ -32,14 +33,6 @@ out.print("<title>Home of " + user+"</title>");
 </div>
 </div>
 </nav>
-
-<%
-user = (String)session.getAttribute("currentuser");
-if(user==null){
-	response.sendRedirect("index.jsp");
-	
-}
-%>
 <br><br>
 
 <a href = "home.jsp">Home</a>
