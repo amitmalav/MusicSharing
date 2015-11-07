@@ -76,7 +76,7 @@ public class Explore {
 			PreparedStatement ps = connection.prepareStatement("select * from track where isapproved = '1'");
 			ResultSet rs=ps.executeQuery();  
 			while(rs.next()){
-				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getInt(6), rs.getFloat(7), rs.getString(8), rs.getString(9));
 				songs.add(t);
 			}
 		}
@@ -85,7 +85,7 @@ public class Explore {
 			ps.setString(1,album);
 			ResultSet rs=ps.executeQuery();  
 			while(rs.next()){
-				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getInt(6), rs.getFloat(7), rs.getString(8), rs.getString(9));
 				songs.add(t);
 			}
 		}
@@ -95,7 +95,7 @@ public class Explore {
 			ps.setString(2,user);
 			ResultSet rs=ps.executeQuery();  
 			while(rs.next()){
-				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getInt(6), rs.getFloat(7), rs.getString(8), rs.getString(9));
 				songs.add(t);
 			}
 		}
@@ -106,7 +106,7 @@ public class Explore {
 			ps.setString(3,artist);
 			ResultSet rs=ps.executeQuery();  
 			while(rs.next()){
-				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getInt(6), rs.getFloat(7), rs.getString(8), rs.getString(9));
 				songs.add(t);
 			}
 		}
@@ -117,7 +117,7 @@ public class Explore {
 			
 			ResultSet rs=ps.executeQuery();  
 			while(rs.next()){
-				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getInt(6), rs.getFloat(7), rs.getString(8), rs.getString(9));
 				songs.add(t);
 			}
 		}
@@ -128,7 +128,7 @@ PreparedStatement ps = connection.prepareStatement("select * from track where ar
 			
 			ResultSet rs=ps.executeQuery();  
 			while(rs.next()){
-				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getInt(6), rs.getFloat(7), rs.getString(8), rs.getString(9));
 				songs.add(t);
 			}
 		}
@@ -139,7 +139,7 @@ PreparedStatement ps = connection.prepareStatement("select * from track where ar
 			ps.setString(2,artist);
 			ResultSet rs=ps.executeQuery();  
 			while(rs.next()){
-				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getInt(6), rs.getFloat(7), rs.getString(8), rs.getString(9));
 				songs.add(t);
 			}
 		}
@@ -150,7 +150,7 @@ PreparedStatement ps = connection.prepareStatement("select * from track where ar
 			ps.setString(2,user);
 			ResultSet rs=ps.executeQuery();  
 			while(rs.next()){
-				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getInt(6), rs.getFloat(7), rs.getString(8), rs.getString(9));
 				songs.add(t);
 			}
 		}

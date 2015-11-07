@@ -20,7 +20,7 @@ public class HomepageAct {
 			ps.setString(1,artist);
 			ResultSet rs=ps.executeQuery();  
 			while(rs.next()){
-				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), artist);
+				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getInt(6), rs.getFloat(7), rs.getString(8), rs.getString(9));
 				songs.add(t);
 			}
 			}catch(Exception e){System.out.println(e);}
@@ -40,7 +40,7 @@ public class HomepageAct {
 		
 		ResultSet rs=ps.executeQuery();  
 		while(rs.next()){
-			Track t = new Track(rs.getString(1), user, rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+			Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getInt(6), rs.getFloat(7), rs.getString(8), rs.getString(9));
 			songs.add(t);
 		}
 		}catch(Exception e){System.out.println(e);}
@@ -84,7 +84,7 @@ public class HomepageAct {
 		
 		ResultSet rs=ps.executeQuery();  
 		while(rs.next()){
-			Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+			Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getInt(6), rs.getFloat(7), rs.getString(8), rs.getString(9));
 			songs.add(t);
 		}
 		}catch(Exception e){System.out.println(e);}
@@ -109,7 +109,7 @@ public class HomepageAct {
 			ps1.setString(2,user);
 			ResultSet rs=ps1.executeQuery(); 
 			while(rs.next()){
-				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getInt(6), rs.getFloat(7), rs.getString(8), rs.getString(9));
 				songs.add(t);
 			}
 			Playlist p = new Playlist(pname, user, songs);
@@ -195,7 +195,7 @@ public class HomepageAct {
 		return val;
 	}
 	
-	public static int addSong_helper(String username, String albumname, String artistname, String trackname, String playtime, String rating, String link){
+	public static int addSong_helper(String username, String albumname, String artistname, String trackname, int playtime, float rating, String link){
 		int val;
 		Connection connection=null;
 		
@@ -207,19 +207,23 @@ public class HomepageAct {
 			ps.setString(2,albumname);
 			ps.setString(3, artistname);
 			ps.setString(4, trackname);
-			ps.setString(5, playtime);
-			ps.setString(6, rating);
+			//int i=Integer.parseInt(playtime);
+			ps.setInt(5, playtime);
+			//float a=Float.parseFloat(rating);
+			//System.out.println(i);
+			//System.out.println(a);
+			ps.setFloat(6, rating);
 			ps.setString(7, link);
 			ps.executeUpdate();
 			connection.commit();
 			val = 0;
 			}
-		catch(Exception e){System.out.println("asdf");System.out.println(e); val = 1;}
+		catch(Exception e){System.out.println("asd123456f");System.out.println(e); val = 1;}
 		finally{closeConnection(connection);}
 		return val;
 	}
 	
-	public static int addSong(String username, String albumname, String artistname, String trackname, String playtime, String rating, String link){
+	public static int addSong(String username, String albumname, String artistname, String trackname, int playtime, float rating, String link){
 		int val;
 		int valart = check_artist(artistname);
 		int valalb = check_album(albumname, artistname);

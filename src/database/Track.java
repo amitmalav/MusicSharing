@@ -4,13 +4,13 @@ public class Track {
 	String trackid;
 	String name;
 	String link;
-	String ptime;
+	int ptime;
 	String album;
 	String user;
-	String rating;
+	float rating;
 	String appr;
 	String artist;
-	public Track(String id,  String u, String a, String ar, String n,  String pt,  String r, String app, String l ){
+	public Track(String id,  String u, String a, String ar, String n,  int pt,  float r, String app, String l ){
 		trackid = id;
 		name = n;
 		link = l;
@@ -36,10 +36,10 @@ public class Track {
 	public void setLink(String t){
 		link = t;
 	}
-	public String getPlayTime(){
+	public int getPlayTime(){
 		return ptime;
 	}
-	public void setPlayTime(String t){
+	public void setPlayTime(int t){
 		ptime = t;
 	}
 	public String getAlbum(){
@@ -51,10 +51,10 @@ public class Track {
 	public String getUser(){
 		return user;
 	}
-	public String getRating(){
+	public float getRating(){
 		return rating;
 	}
-	public void setRating(String r){
+	public void setRating(float r){
 		rating = r;
 	}
 	public String getStatus(){

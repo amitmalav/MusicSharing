@@ -32,7 +32,7 @@ public class AddSong extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		response.setContentType("text/html");  
+		/* response.setContentType("text/html");  
 	    PrintWriter out = response.getWriter();  
 	    
 	    
@@ -65,7 +65,7 @@ public class AddSong extends HttpServlet {
 		
 		
 		//out.print("Welcome "+ username);
-		
+		*/
 	}
 
 	/**
@@ -73,8 +73,7 @@ public class AddSong extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
-	/*	response.setContentType("text/html");  
+		response.setContentType("text/html");  
 	    PrintWriter out = response.getWriter();  
 	    
 	    
@@ -84,16 +83,20 @@ public class AddSong extends HttpServlet {
 		String artistname = request.getParameter("artistname");
 		String trackname = request.getParameter("trackname");
 		String playtime = request.getParameter("playtime");
-		String rating = request.getParameter("rating");
+		String rating = request.getParameter("trackrating");
 		String link = request.getParameter("link");
 		if(albumname == "" || artistname == "" || trackname == "" || playtime == "" || rating == "" || link == ""){
 			session.setAttribute("datavalid", "Invalid");
 			response.sendRedirect("addsong.jsp");
 		}
 		else{
-			int playint = Integer.parseInt(playtime);
-			int ratint = Integer.parseInt(rating);
-			if(HomepageAct.addSong(username, albumname, artistname, trackname, playint, ratint, link)==0){
+			//int playint = Integer.parseInt(playtime);
+			//int ratint = Integer.parseInt(rating);
+			int i=Integer.parseInt(playtime);
+			float a=Float.valueOf(rating);
+			System.out.println(a);
+			System.out.println("fghjk");
+			if(HomepageAct.addSong(username, albumname, artistname, trackname, i, a, link)==0){
 				session.setAttribute("datavalid", "Valid");
 				response.sendRedirect("home.jsp");
 	    	}
@@ -107,7 +110,6 @@ public class AddSong extends HttpServlet {
 		
 		
 		//out.print("Welcome "+ username);
-*/		
 	}
 
 }

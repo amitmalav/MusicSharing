@@ -24,8 +24,8 @@ public class FirstPage {
 		String album = rs.getString(3);
 		String artist = rs.getString(4);
 		String name = rs.getString(5);
-		String ptime = rs.getString(6);
-		String rating = rs.getString(7);
+		int ptime = rs.getInt(6);
+		float rating = rs.getFloat(7);
 		String appr = rs.getString(8);
 		String link = rs.getString(9);
 		Track t = new Track(id, user, album, artist, name, ptime, rating, appr, link);
