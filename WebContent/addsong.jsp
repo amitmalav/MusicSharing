@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Add Songs</title>
+<link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
 <%
@@ -19,7 +20,7 @@ if(user==null){
 			<div class="col-md-10">
 				<div class="form-group row">
 					<label for="albumname" class="col-md-2 control-label">AlbumName:</label>
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<input type="text" class="form-control" name="albumname">
 					</div>
 				</div>
@@ -92,7 +93,8 @@ if(user==null){
 			</div>
 		</div>
 		
-		<div class="form-group">
+		<div class="form-group col-md-10 form-group row">
+			<div class="col-md-2"></div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</div>
 </form>
