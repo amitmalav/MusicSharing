@@ -11,6 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>See my playlist</title>
+<link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
 <nav class = "navbar navbar-default">
