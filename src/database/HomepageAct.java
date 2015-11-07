@@ -73,6 +73,36 @@ public class HomepageAct {
 		finally{closeConnection(connection);} 
 		return songs;
 	}
+	
+	public static List<Playlist> getMyplaylists(String user){  
+		Connection connection=null;
+		List<Playlist> pl = new ArrayList<Playlist>();
+		
+		try{
+		connection=getConnection();
+		PreparedStatement ps = connection.prepareStatement("select distinct plname from playlist where username=?");  
+		ps.setString(1,user);	
+		ResultSet rs1=ps.executeQuery();  
+		while(rs1.next()){
+			String pname = rs1.getString(1);
+			List<Track> songs = new ArrayList<Track>();
+			PreparedStatement ps1 = connection.prepareStatement("select * from track where trackid in (select trackid from playlist where plname =? and username =?)");  
+			ps1.setString(1,pname);
+			ps1.setString(2,user);
+			ResultSet rs=ps1.executeQuery(); 
+			while(rs.next()){
+				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+				songs.add(t);
+			}
+			Playlist p = new Playlist(pname, user, songs);
+			pl.add(p);
+		}
+		}catch(Exception e){System.out.println(e);}
+		finally{closeConnection(connection);} 
+		return pl;
+	}
+	
+	
 	public static int check_artist(String artistname){
 		int val=0;
 		Connection connection=null;

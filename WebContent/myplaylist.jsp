@@ -17,14 +17,16 @@
 <%
 String user = (String)session.getAttribute("currentuser");
 	out.print(user + "<br><br>");	
-	List<Playlist> rs = HomepageAct.getMySongs(user);
+	List<Playlist> rs = HomepageAct.getMyplaylists(user);
 	
-	for(Playlist song : rs){
-		out.print("<br><br>**** <br>");
-		out.print(song.getUser() + "		" + song.getTrack()+"		" + song.getAlbum()+"		" + song.getArtist()+"		" + song.getStatus()+"		"+ song.getLink()+"		");
+	for(Playlist pl : rs){
+		out.print(pl.getPlaylistname());
+		out.print("<br><br>");
 	}
 %>
 
+
+<!-- //Add the onclick show data functionality bebo!! i don't know how to do that. -->
 
 <a href = newplaylist.jsp>Create new playlist</a>
 
