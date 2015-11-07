@@ -1,6 +1,7 @@
 package database;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,21 +11,66 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomepageAct {
-	public static List<String> getMySongs(String user){  
+	public static List<Track> getMySongs(String user){  
 		Connection connection=null;
-		List<String> songs = new ArrayList<String>();
+		List<Track> songs = new ArrayList<Track>();
 		
 		try{
 		connection=getConnection();
-		PreparedStatement ps = connection.prepareStatement("select trackname from track where username=?");  
+		PreparedStatement ps = connection.prepareStatement("select * from track where username=?");  
 		ps.setString(1,user);  
 		
 		ResultSet rs=ps.executeQuery();  
 		while(rs.next()){
-			songs.add(rs.getString(1));
+			Track t = new Track(rs.getString(1), user, rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+			songs.add(t);
 		}
-		}catch(Exception e){//System.out.println(e);
-			}  
+		}catch(Exception e){System.out.println(e);}
+		finally{closeConnection(connection);} 
+		return songs;
+	}
+	public static int addPlaylist(String username, String[] songs, String plname, String ispublic){
+		int val = 1;
+		Connection connection=null;
+		
+			try{
+				connection=getConnection();
+				connection.setAutoCommit(false);
+				for(int i = 0; i < songs.length; i++){
+					String song = songs[i];
+					int songid = Integer.parseInt(song);
+					
+				
+				PreparedStatement ps = connection.prepareStatement("insert into playlist (username, trackid, plname, ispublic) values (?,?,?,?)");
+				ps.setString(1,username);
+				ps.setInt(2,songid);
+				ps.setString(3,plname);
+				ps.setString(4,ispublic);
+				ps.executeUpdate();
+				connection.commit();
+				val = 0;
+				}
+				}
+			catch(Exception e){System.out.println("asdf");System.out.println(e); val = 1;}
+			finally{closeConnection(connection);}
+		return val;
+	}
+
+	public static List<Track> getallSongs(){  
+		Connection connection=null;
+		List<Track> songs = new ArrayList<Track>();
+		
+		try{
+		connection=getConnection();
+		PreparedStatement ps = connection.prepareStatement("select * from track where isapproved = '1'");  
+		
+		ResultSet rs=ps.executeQuery();  
+		while(rs.next()){
+			Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+			songs.add(t);
+		}
+		}catch(Exception e){System.out.println(e);}
+		finally{closeConnection(connection);} 
 		return songs;
 	}
 	public static int check_artist(String artistname){
@@ -108,7 +154,7 @@ public class HomepageAct {
 		try{
 			connection=getConnection();
 			connection.setAutoCommit(false);
-			PreparedStatement ps = connection.prepareStatement("insert into track (username, albumname, artistname, trackname, playtime, trackrating, tracklink) values (?,?,?,?,?,?,?)");
+			PreparedStatement ps = connection.prepareStatement("insert into track (username, albumname, artistname, trackname, playtime, trackrating, tracklink, isapproved) values (?,?,?,?,?,?,?, '0')");
 			ps.setString(1,username);
 			ps.setString(2,albumname);
 			ps.setString(3, artistname);
@@ -141,6 +187,10 @@ public class HomepageAct {
 		val = addSong_helper(username, albumname, artistname, trackname, playtime, rating, link);
 		return val;
 	}
+	
+	
+	
+	
 	
 	static Connection getConnection() {
 		String dbURL = "jdbc:postgresql://10.105.1.12/cs387";
