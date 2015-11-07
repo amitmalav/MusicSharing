@@ -62,6 +62,10 @@
 				</div>
 			</div>
 		</div>
+		<div class="form-group col-md-10 form-group row">
+			<div class="col-md-2"></div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
 	</form>
 </div>
 </body>
