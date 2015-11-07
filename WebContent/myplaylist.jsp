@@ -16,6 +16,10 @@
 <br><br>
 <%
 String user = (String)session.getAttribute("currentuser");
+if(user==null){
+	response.sendRedirect("index.jsp");
+	
+}
 	out.print(user + "<br><br>");	
 	List<Playlist> rs = HomepageAct.getMyplaylists(user);
 	

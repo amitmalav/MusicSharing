@@ -7,7 +7,13 @@
 <title>Add Songs</title>
 </head>
 <body>
-
+<%
+String user = (String)session.getAttribute("currentuser");
+if(user==null){
+	response.sendRedirect("index.jsp");
+	
+}
+%>
 <form action="AddSong" method="post">  
 AlbumName:<input type="text" name="albumname"/><br/><br/>  
 ArtistName:<input type="text" name="artistname"/><br/><br/>  
