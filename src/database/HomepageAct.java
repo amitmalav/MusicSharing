@@ -11,6 +11,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomepageAct {
+	public static List<Track> getArtistSongs(String artist){  
+		Connection connection=null;
+		List<Track> songs = new ArrayList<Track>();
+		try{
+			connection=getConnection();
+			PreparedStatement ps = connection.prepareStatement("select * from track where artistname = ?");
+			ps.setString(1,artist);
+			ResultSet rs=ps.executeQuery();  
+			while(rs.next()){
+				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getString(6), rs.getString(7), rs.getString(8), artist);
+				songs.add(t);
+			}
+			}catch(Exception e){System.out.println(e);}
+		finally{closeConnection(connection);} 
+		return songs;
+		}
+	
+	
 	public static List<Track> getMySongs(String user){  
 		Connection connection=null;
 		List<Track> songs = new ArrayList<Track>();

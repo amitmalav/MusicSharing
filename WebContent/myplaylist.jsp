@@ -29,13 +29,15 @@ if(user==null){
 	response.sendRedirect("index.jsp");
 	
 }
-	out.print(user + "<br><br>");	
+	/* out.print(user + "<br><br>"); */	
 	List<Playlist> rs = HomepageAct.getMyplaylists(user);
-	
+	boolean empty = true;
 	for(Playlist pl : rs){
+		empty = true;
 		out.print(pl.getPlaylistname());
 		out.print("<br><br>");
 	}
+	if(empty) out.print("No Playlists yet!"+"<br/><br/>");
 %>
 
 

@@ -28,6 +28,7 @@ out.print("<title>Home of " + user+"</title>");
 <div class = "container-fluid">
 <div class = "navbar-header col-md-12">
 <% out.print("<div class='navbar-brand col-md-4'>Welcome " + user + "</div>"); %>
+<a class = "navbar-brand col-md-3" href = "explore.jsp">Explore Songs</a>
 <a class = "navbar-brand col-md-3" href = "feedback.jsp">Give Feedback</a>
 <a class = "navbar-brand col-md-3" href = "logout.jsp">Logout</a>
 </div>
