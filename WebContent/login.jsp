@@ -50,7 +50,7 @@
 	
 	<div class="form-group col-md-10 form-group row">
 		<div class="col-md-2"></div>
-		<button type="submit" class="btn btn-primary">Create Playlist</button>
+		<button type="submit" class="btn btn-primary">Login</button>
 	</div>  
 </form>
 </body>

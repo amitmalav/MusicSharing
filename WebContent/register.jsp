@@ -7,7 +7,6 @@
 <title>Register yourself</title>
 <link rel="stylesheet" href="css/bootstrap.css">
 <%if(session.getAttribute("currentuser") != null) {
-	System.out.println("werty");
 	response.sendRedirect("home.jsp");
 }
 %>
