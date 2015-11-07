@@ -14,9 +14,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href = "home.jsp">Home</a>
+<!-- <a href = "home.jsp">Home</a>
 
-<br><br>
+<br><br> -->
 
 <%
 
