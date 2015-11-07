@@ -6,7 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login</title>
 
-<%if(session.getAttribute("currentUser") != null) { 
+<%if(session.getAttribute("currentuser") != null) {
+	System.out.println("werty");
 	response.sendRedirect("home.jsp");
 }
 %>
