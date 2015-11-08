@@ -33,7 +33,7 @@ if(user==null){
 	List<Playlist> rs = HomepageAct.getMyplaylists(user);
 	boolean empty = true;
 	for(Playlist pl : rs){
-		empty = true;
+		empty = false;
 		out.print(pl.getPlaylistname());
 		out.print("<br><br>");
 	}

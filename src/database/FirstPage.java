@@ -16,7 +16,7 @@ public class FirstPage {
 	
 	try{
 	connection=getConnection();
-	PreparedStatement ps = connection.prepareStatement("select * from track where isapproved='1' order by trackrating desc limit 9");  
+	PreparedStatement ps = connection.prepareStatement("select * from track where isapproved='1' order by trackrating desc limit 9");
 	ResultSet rs=ps.executeQuery();  
 	while(rs.next()){
 		String id = rs.getString(1);

@@ -18,7 +18,7 @@
 <nav class = "navbar navbar-default">
 <div class = "container-fluid">
 <div class = "navbar-header col-md-12">
-<div class="navbar-brand col-md-6">Welcome to Music Sharing Application</div>
+<div class="navbar-brand col-md-6" href = "index.jsp">Welcome to Music Sharing Application</div>
 <a class = "navbar-brand col-md-1" href = "login.jsp">Login</a>
 <a class = "navbar-brand col-md-1" href = "register.jsp">Register</a>
 </div>

@@ -36,21 +36,32 @@ public class Login extends HttpServlet {
 	    PrintWriter out = response.getWriter();  
 	          
 	    String username=request.getParameter("username");  
-	    String password=request.getParameter("password");  
+	    String password=request.getParameter("password");
+	    int role = LoginAct.validate(username, password);
 	          
-	    if(LoginAct.validate(username, password)){
+	    if(role == 0){
 	    	//request.setAttribute("username", n);
 	    	HttpSession userSession = request.getSession(true);
 			//userSession.setAttribute("currentUser", username);
+	    	userSession.setAttribute("role", "member");
 	    	userSession.setAttribute("currentuser", username);
 	    	response.sendRedirect("home.jsp");
+	    }
+	    else if(role == 1){
+	    	//request.setAttribute("username", n);
+	    	HttpSession userSession = request.getSession(true);
+			//userSession.setAttribute("currentUser", username);
+	    	userSession.setAttribute("role", "admin");
+	    	userSession.setAttribute("currentuser", username);
+	    	response.sendRedirect("home.jsp");
+	    	
 	    }
 	    else{  
 	        //out.print("Sorry username or password error");  
 	        //RequestDispatcher rd=request.getRequestDispatcher(request.getContextPath() + "/login.jsp");  
 	        //rd.include(request,response);
 	    	//request.getSession(true).setAttribute("error", "Invalid");
-	    	//response.sendRedirect("login.jsp");
+	    	response.sendRedirect("login.jsp");
 	    }  
 	}
 

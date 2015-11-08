@@ -8,8 +8,8 @@ import java.sql.SQLException;
 
 public class LoginAct {
 	
-	public static boolean validate(String name,String pass){  
-		boolean status=false;
+	public static int validate(String name,String pass){  
+		int status= -1;
 		Connection connection=null;
 		
 		try{
@@ -19,7 +19,7 @@ public class LoginAct {
 		ps.setString(2,pass);  
 		      
 		ResultSet rs=ps.executeQuery();  
-		status=rs.next();
+		while(rs.next()){status = rs.getInt(5);}
 		}catch(Exception e){System.out.println(e);}  
 		finally{
 			closeConnection(connection);
