@@ -11,6 +11,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomepageAct {
+	public static int updateTrack(String [] id ){
+		int val = 1;
+		Connection connection=null;
+		try{
+			for(int i=0; i<id.length; i++){
+			connection=getConnection();
+			connection.setAutoCommit(false);
+			PreparedStatement ps = connection.prepareStatement("update track set isapproved='1' where trackid=?");
+			int tmp = Integer.parseInt(id[i]);
+			ps.setInt(1,tmp);
+			int rs=ps.executeUpdate();
+			val = 0;
+			}
+			connection.commit();}catch(Exception e){System.out.println(e); val = 1;}
+		finally{closeConnection(connection);} 
+		return val;
+		}
+	/*public static int disapproveTrack(){
+		int val = 1;
+		Connection connection=null;
+		try{
+			connection=getConnection();
+			connection.setAutoCommit(false);
+			PreparedStatement ps = connection.prepareStatement("delete from  track where isapproved = '0'");
+			int rs=ps.executeUpdate();
+			val = 0;
+			}catch(Exception e){System.out.println(e); val = 1;}
+		finally{closeConnection(connection);} 
+		return val;
+		}*/
+	
 	public static List<Track> getArtistSongs(String artist){  
 		Connection connection=null;
 		List<Track> songs = new ArrayList<Track>();
@@ -21,6 +52,22 @@ public class HomepageAct {
 			ResultSet rs=ps.executeQuery();  
 			while(rs.next()){
 				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getInt(6), rs.getFloat(7), rs.getString(8), rs.getString(9));
+				songs.add(t);
+			}
+			}catch(Exception e){System.out.println(e);}
+		finally{closeConnection(connection);} 
+		return songs;
+		}
+	public static List<Track> getUnapprovedSongs(){  
+		Connection connection=null;
+		List<Track> songs = new ArrayList<Track>();
+		try{
+			connection=getConnection();
+			PreparedStatement ps = connection.prepareStatement("select * from track where isapproved = '0'");
+			
+			ResultSet rs=ps.executeQuery();  
+			while(rs.next()){
+				Track t = new Track(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5),  rs.getInt(6), rs.getFloat(7), rs.getString(8), rs.getString(9) );
 				songs.add(t);
 			}
 			}catch(Exception e){System.out.println(e);}
