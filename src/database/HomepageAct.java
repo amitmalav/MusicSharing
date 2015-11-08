@@ -15,7 +15,7 @@ public class HomepageAct {
 		int val = 1;
 		Connection connection=null;
 		try{
-			for(int i=0; i<id.length; i++){
+			for(int i=0; i<=id.length-1; i++){
 			connection=getConnection();
 			connection.setAutoCommit(false);
 			PreparedStatement ps = connection.prepareStatement("update track set isapproved='1' where trackid=?");
@@ -63,7 +63,7 @@ public class HomepageAct {
 		List<Track> songs = new ArrayList<Track>();
 		try{
 			connection=getConnection();
-			PreparedStatement ps = connection.prepareStatement("select * from track where isapproved = '0'");
+			PreparedStatement ps = connection.prepareStatement("select * from track where isapproved='0'");
 			
 			ResultSet rs=ps.executeQuery();  
 			while(rs.next()){

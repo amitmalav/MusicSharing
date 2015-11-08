@@ -27,15 +27,19 @@ out.print("<title>Home of " + user+"</title>");
 <nav class = "navbar navbar-default">
 <div class = "container-fluid">
 <div class = "navbar-header col-md-12">
-<% out.print("<div class='navbar-brand col-md-7'>Welcome " + user + "</div>"); %>
-<a class = "navbar-brand col-md-3" href = "explore.jsp">Explore Songs</a>
-<a class = "navbar-brand col-md-3" href = "feedback.jsp">Give Feedback</a>
+<% out.print("<div class='navbar-brand col-md-6'>Welcome " + user + "</div>"); %>
+<a class = "navbar-brand col-md-2" href = "explore.jsp">Explore Songs</a>
+<a class = "navbar-brand col-md-2" href = "feedback.jsp">Give Feedback</a>
 <%
 if(session.getAttribute("role") == "admin"){%>
-<a class = "navbar-brand col-md-3" href = "manage.jsp">Manage</a>
+<a class = "navbar-brand col-md-1" href = "manage.jsp">Manage</a>
 
-<%}%>
-<a class = "navbar-brand col-md-3" href = "logout.jsp">Logout</a>
+<%}
+else{
+	out.print("<div class='col-md-1'></div>");
+}
+%>
+<a class = "navbar-brand col-md-1" href = "logout.jsp">Logout</a>
 </div>
 </div>
 </nav>

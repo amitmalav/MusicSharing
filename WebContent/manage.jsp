@@ -5,28 +5,59 @@
     %>
     <%@ page import="database.HomepageAct" %>
     <%@ page import="database.Track" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Admin Page</title>
+<link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
+<nav class = "navbar navbar-default">
+<div class = "container-fluid">
+<div class = "navbar-header col-md-12">
+<a class = "navbar-brand col-md-3" href = "home.jsp">Home</a>
+<a class = "navbar-brand col-md-3" href = "feedback.jsp">Give Feedback</a>
+<a class = "navbar-brand col-md-3" href = "logout.jsp">Logout</a>
+</div>
+</div>
+</nav>
+<a href = "addsong.jsp" class="col-md-12"><input type="button" value="Add a new Song" name="add"></a>
 <form action="Manage" method="post" >
+<table class="table table-striped">
+	<thead>
+      <tr>
+        <th>Track Name</th>
+        <th>Album Name</th>
+        <th>Artist Name</th>
+        <th>Rating</th>
+        <th>Status</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
 <%
 String user = (String)session.getAttribute("currentuser");
 if(user==null){
 	response.sendRedirect("index.jsp");
 }
 List<Track> unapps = HomepageAct.getUnapprovedSongs();
-if(unapps == null){
+if(unapps.isEmpty()){
 	response.sendRedirect("home.jsp");
 }
+
 for(Track t : unapps){
-	out.print(t.getTrack()+"   "+t.getAlbum()+"   "+t.getArtist()+"   "+t.getUser());
-out.print("<input type=\"checkbox\" name=\"checked\""+ "value=\""+t.getTrackid()+"\">" + "<br/><br/>");
-	} 
+	out.print("<tr>");
+	out.print("<td>"+t.getTrack()+"</td>");
+	out.print("<td>"+t.getAlbum()+"</td>");
+	out.print("<td>"+t.getArtist()+"</td>");
+	out.print("<td>"+t.getRating()+"</td>");
+	out.print("<td><input type=\"checkbox\" name=\"checked\""+ "value=\""+t.getTrackid()+"\"></td>");
+	out.print("<td><a href="+t.getTrack()+"><div>Listen</div><a/></td>");
+	}
 %>
+</tbody>
+</table>
 <button type="submit">Submit</button>
 </form>
 
