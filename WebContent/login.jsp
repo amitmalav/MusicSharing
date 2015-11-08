@@ -18,7 +18,7 @@
 <nav class = "navbar navbar-default">
 <div class = "container-fluid">
 <div class = "navbar-header col-md-12">
-<div class="navbar-brand col-md-6" href = "index.jsp">Welcome to Music Sharing Application</div>
+<a class="navbar-brand col-md-6" href = "index.jsp">Welcome to Music Sharing Application</a>
 <a class = "navbar-brand col-md-1" href = "login.jsp">Login</a>
 <a class = "navbar-brand col-md-1" href = "register.jsp">Register</a>
 </div>
@@ -31,7 +31,7 @@
 			<div class="form-group row">
 				<label for="username" class="col-md-2 control-label">UserName:</label>
 				<div class="col-md-3">
-					<input type="text" class="form-control" name="username">
+					<input type="text" class="form-control" name="username" required>
 				</div>
 			</div>
 		</div>
@@ -42,7 +42,7 @@
 			<div class="form-group row">
 				<label for="passwprd" class="col-md-2 control-label">Password:</label>
 				<div class="col-md-3">
-					<input type="password" class="form-control" name="password">
+					<input type="password" class="form-control" name="password" required>
 				</div>
 			</div>
 		</div>

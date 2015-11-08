@@ -36,7 +36,7 @@
 	out.print("<div class='col-md-12'>");
 	out.print("<div class='form-group row'>");
 	for(Track t: top){
-		out.print("<div style='background: #bdbdbd; border-style:inset; border-color: #848484' class='col-md-4'>");
+		out.print("<div style='background: #bdbdbd; border-style:inset; border-color: #848484;height:300px' class='col-md-4'>");
 		out.print("<h3 class='col-md-12 text-center'>"+t.getTrack()+"</h3>");
 		out.print("<h5 class='col-md-12 text-center'>"+t.getAlbum()+"</h5>");
 		out.print("<div class='col-md-5'></div>");

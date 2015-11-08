@@ -46,7 +46,7 @@ String user = (String)session.getAttribute("currentuser");
 		out.print("<td>"+song.getArtist()+"</td>");
 		out.print("<td>"+song.getRating()+"</td>");
 		out.print("<td>"+song.getStatus()+"</td>");
-		out.print("<td><a href="+song.getTrack()+"><div>Listen</div><a/></td>");
+		out.print("<td><a href="+song.getLink()+" target='_blank'><div>Listen</div><a/></td></tr>");
 	}
 %>
 </tbody>

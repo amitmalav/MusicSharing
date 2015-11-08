@@ -45,7 +45,7 @@ public class Manage extends HttpServlet {
 			if(HomepageAct.updateTrack(tracks) == 0){
 				//if(HomepageAct.disapproveTrack() == 0){
 					session.setAttribute("datavalid", "Valid");
-					response.sendRedirect("myplaylist.jsp");
+					response.sendRedirect("home.jsp");
 				}
 				//else{
 		    		//out.println("Sorry! there was some error during deleting the playlist Please try again.");

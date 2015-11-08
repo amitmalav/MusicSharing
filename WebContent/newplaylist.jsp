@@ -59,15 +59,34 @@ if(user==null){
 		</div>
 	</div>
 
-<%
-	out.print(user + "<br><br>");	
+<table class="table table-striped">
+	<thead>
+      <tr>
+        <th>Track Name</th>
+        <th>Album Name</th>
+        <th>Artist Name</th>
+        <th>Rating</th>
+        <th>Add</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+
+<%	
 	List<Track> rs = HomepageAct.getallSongs();
 	
-	for(Track song : rs){
-		out.print("<input type=\"checkbox\" name=\"track\""+ "value=\""+ song.getTrackid() +  "\">" +  song.getTrack()+"		" + song.getAlbum() + "<br><br>");
+	for(Track t : rs){
+		out.print("<tr>");
+		out.print("<td>"+t.getTrack()+"</td>");
+		out.print("<td>"+t.getAlbum()+"</td>");
+		out.print("<td>"+t.getArtist()+"</td>");
+		out.print("<td>"+t.getRating()+"</td>");
+		out.print("<td><input type=\"checkbox\" name=\"checked\""+ "value=\""+t.getTrackid()+"\"></td>");
+		out.print("<td><a href="+t.getLink()+" target='_blank'><div>Listen</div><a/></td></tr>");
 	}
 %>
-
+</tbody>
+</table>
 	<div class="form-group col-md-10 form-group row">
 		<div class="col-md-2"></div>
 		<button type="submit" class="btn btn-primary">Create Playlist</button>

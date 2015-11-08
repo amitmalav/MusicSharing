@@ -4,17 +4,32 @@
             import= "java.sql.*"
     %>
     <%@ page import="database.Explore" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-<h2>Apply one or more filters</h2>
-<h3>Artist</h3>
+
+<nav class = "navbar navbar-default">
+<div class = "container-fluid">
+<div class = "navbar-header col-md-12">
+<a class = "navbar-brand col-md-3" href = "home.jsp">Home</a>
+<a class = "navbar-brand col-md-3" href = "feedback.jsp">Give Feedback</a>
+<a class = "navbar-brand col-md-3" href = "logout.jsp">Logout</a>
+</div>
+</div>
+</nav>
+<h1 class="text-center">Apply one or more filters</h1>
 <form action="exploreRes.jsp" method="post" >
-<select name = "artist">
+<div class="form-group">
+	<div class="col-md-10">
+		<div class="form-group row">
+			<label for="name" class="col-md-2 control-label">Artist:</label>
+			<div class="col-md-3">
+				<select class="form-control" name="name">
 <option>All</option>
 <%
 List<String> artist = new ArrayList<String>();
@@ -31,8 +46,16 @@ for(String ar: artist){
 }
 %>
 </select>
-<h3>User</h3>
-<select name = "user">
+</div>
+</div>
+</div>
+</div>
+<div class="form-group">
+	<div class="col-md-10">
+		<div class="form-group row">
+			<label for="user" class="col-md-2 control-label">Artist:</label>
+			<div class="col-md-3">
+				<select class="form-control" name="user">
 <option>All</option>
 <%
 for(String us: user){
@@ -42,8 +65,16 @@ for(String us: user){
 }
 %>
 </select>
-<h3>Album</h3>
-<select name = "album">
+</div>
+</div>
+</div>
+</div>
+<div class="form-group">
+	<div class="col-md-10">
+		<div class="form-group row">
+			<label for="album" class="col-md-2 control-label">Artist:</label>
+			<div class="col-md-3">
+				<select class="form-control" name="album">
 <option>All</option>
 <%
 for(String a: album){
@@ -53,7 +84,14 @@ for(String a: album){
 }
 %>
 </select>
-<button type="submit">Submit</button>
+</div>
+</div>
+</div>
+</div>
+<div class="form-group col-md-10 form-group row">
+		<div class="col-md-2"></div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</div> 
 </form>
 </body>
 </html>

@@ -58,6 +58,18 @@ public class HomepageAct {
 		finally{closeConnection(connection);} 
 		return songs;
 		}
+	public static void addFeedback(String username, String comment){  
+		Connection connection=null;
+		try{
+			connection=getConnection();
+			PreparedStatement ps = connection.prepareStatement("insert into feedback values(?,?)");
+			ps.setString(1,username);
+			ps.setString(2,comment);
+			
+			int s=ps.executeUpdate();  
+			connection.commit();}catch(Exception e){System.out.println(e);}
+		finally{closeConnection(connection);} 
+	}
 	public static List<Track> getUnapprovedSongs(){  
 		Connection connection=null;
 		List<Track> songs = new ArrayList<Track>();

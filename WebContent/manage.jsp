@@ -22,7 +22,7 @@
 </div>
 </div>
 </nav>
-<a href = "addsong.jsp" class="col-md-12"><input type="button" value="Add a new Song" name="add"></a>
+
 <form action="Manage" method="post" >
 <table class="table table-striped">
 	<thead>
@@ -53,12 +53,15 @@ for(Track t : unapps){
 	out.print("<td>"+t.getArtist()+"</td>");
 	out.print("<td>"+t.getRating()+"</td>");
 	out.print("<td><input type=\"checkbox\" name=\"checked\""+ "value=\""+t.getTrackid()+"\"></td>");
-	out.print("<td><a href="+t.getTrack()+"><div>Listen</div><a/></td>");
+	out.print("<td><a href="+t.getLink()+" target='_blank'><div>Listen</div><a/></td></tr>");
 	}
 %>
 </tbody>
 </table>
-<button type="submit">Submit</button>
+<div class="form-group col-md-10 form-group row">
+		<div class="col-md-2"></div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</div> 
 </form>
 
 </body>

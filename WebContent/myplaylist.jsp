@@ -29,6 +29,8 @@
 </div>
 </div>
 </nav>
+
+<a href = newplaylist.jsp class="col-md-3 btn btn-primary">Create new playlist</a><br><br>
 <%
 String user = (String)session.getAttribute("currentuser");
 if(user==null){
@@ -47,7 +49,7 @@ if(user==null){
 		out.print("<div class='col-md-12'>");
 		out.print("<div class='form-group row'>");
 		for(Track t: a){
-			out.print("<div style='background: #bdbdbd; border-style:inset; border-color: #848484' class='col-md-4'>");
+			out.print("<div style='background: #bdbdbd; border-style:inset; border-color: #848484;height:300px' class='col-md-4'>");
 			out.print("<h3 class='col-md-12 text-center'>"+t.getTrack()+"</h3>");
 			out.print("<h5 class='col-md-12 text-center'>"+t.getAlbum()+"</h5>");
 			out.print("<div class='col-md-5'></div>");
@@ -63,8 +65,6 @@ if(user==null){
 
 
 <!-- //Add the onclick show data functionality bebo!! i don't know how to do that. -->
-
-<a href = newplaylist.jsp class="col-md-12">Create new playlist</a>
 
 	<script src="js/jquery-2.1.4.min.js"></script>
 	<script src="js/bootstrap.js"></script>
